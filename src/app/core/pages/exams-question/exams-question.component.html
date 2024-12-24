@@ -1,15 +1,11 @@
-@if (selectedQuestion) {
-  
-  @if (showResult) {
+@if (selectedQuestion) { @if (showResult) {
 <div>
   <div class="flex justify-content-between">
     <span class="text-primary font-bold"
       >Qustion {{ selectedQuestionIndex + 1 }} of {{ Question.length }}</span
     >
-    <div class="text-green-400 font-bold flex align-items-center">
-      <i class="pi pi-stopwatch mx-1"></i>
-      {{ formattedTime }}
-    </div>
+
+    <app-timeexam [timeout]="timeoutt"></app-timeexam>
   </div>
 
   <div class="flex justify-content-between my-4">
@@ -28,7 +24,7 @@
   >
     <input
       type="radio"
-      (click)="getqustion(answer.key, selectedQuestion)"
+      (click)="getqustion(answer.key)"
       name="options"
       [checked]="changebgInput === answer.key"
       [value]="answer.key"

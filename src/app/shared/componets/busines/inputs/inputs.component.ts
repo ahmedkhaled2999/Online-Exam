@@ -15,6 +15,7 @@ import { ErrapiComponent } from '../errorapi/errapi/errapi.component';
 import { RouterLink } from '@angular/router';
 import { TextauthComponent } from '../../ui/textauth/textauth.component';
 import { NgClass } from '@angular/common';
+import { CallgoogleapiComponent } from "../callgoogleapi/callgoogleapi.component";
 
 @Component({
   selector: 'app-inputs',
@@ -25,10 +26,10 @@ import { NgClass } from '@angular/common';
     ErrocomponetsComponent,
     ErrapiComponent,
     HeadnameComponent,
-
     TextauthComponent,
     NgClass,
-  ],
+    CallgoogleapiComponent
+],
   templateUrl: './inputs.component.html',
   styleUrl: './inputs.component.css',
 })

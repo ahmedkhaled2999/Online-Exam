@@ -1,35 +1,35 @@
-<app-search (searchKeyy)="onSearch($event)"  ></app-search>
-
+<app-search (searchKeyy)="onSearch($event)"></app-search>
 
 <app-profileinfo></app-profileinfo>
+<div class="bg-white p-2 border-round-2xl">
+  <div>
+    <ul class="flex justify-content-between align-content-center">
+      <li class="main-color font-bold">Quizes</li>
+      <li class="main-color font-semibold">Pagination</li>
+    </ul>
 
-<div>
-  <ul class="flex justify-content-between align-content-center">
-    <li class="main-color font-bold">Quizes</li>
-    <li class="main-color font-semibold">Pagination</li>
-  </ul>
-
-  <div
-    class="flex flex-wrap gap-5 mt-4 justify-content-center align-items-center"
-  >
-    @for (item of quizes | filterbyname:searchkey ; track $index) {
-    <div class="width relative" [routerLink]="'/home/exams/' + item._id">
-      <img [src]="item.icon" class="w-full" alt="" />
-      <div></div>
-      <div class="width-text absolute text-place row">
-        <div class="">
-          <h3 class="fs">{{ item.name }}</h3>
-          <p class="fs">Voluptatem aut ut dignissimos blanditiis</p>
+    <div
+      class="flex flex-wrap gap-5 mt-4 justify-content-center align-items-center"
+    >
+      @for (item of quizes | filterbyname:searchkey ; track $index) {
+      <div class="width relative" [routerLink]="'/home/exams/' + item._id">
+        <img [src]="item.icon" class="w-full" alt="" />
+        <div></div>
+        <div class="width-text absolute text-place row">
+          <div class="">
+            <h3 class="fs">{{ item.name }}</h3>
+            <p class="fs">Voluptatem aut ut dignissimos blanditiis</p>
+          </div>
         </div>
       </div>
+      }
     </div>
-    }
   </div>
+  <p-paginator
+    [rows]="rows"
+    [totalRecords]="togal"
+    [first]="first"
+    (onPageChange)="onPageChange($event)"
+  >
+  </p-paginator>
 </div>
-<p-paginator
-  [rows]="rows"
-  [totalRecords]="togal"
-  [first]="first"
-  (onPageChange)="onPageChange($event)"
->
-</p-paginator>

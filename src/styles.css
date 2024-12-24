@@ -32,9 +32,12 @@ a {
   text-decoration: none;
 }
 
+.p_all{
+  padding: 16px 32px;
+}
 .style_button {
   color: white;
-  padding: 10px 25px;
+  padding: 16px 30px ;
   border: none;
   border-radius: 15px;
   transition: 0.5s;
@@ -158,7 +161,7 @@ svg {
   stroke-width: 8;
   stroke-linecap: round;
   fill: none;
-Z
+
   transition: stroke-dashoffset 1s ease;
 }
 
@@ -264,4 +267,9 @@ input[type="radio"]:checked + .custom-radio:after {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--main-color);
+}
+
+
+.main_bg{
+  background-color: rgba(197, 196, 196, 0.199);
 }

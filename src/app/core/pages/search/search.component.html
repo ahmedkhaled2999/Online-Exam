@@ -1,14 +1,15 @@
-<div class="flex align-items-center justify-content-center mb-5">
-  <div class="p-3 w-8 w-full flex align-items-center justify-content-center">
-    <i class="pi pi-search main-color mx-1 font-bold"></i>
+<div class="flex align-items-center gap-4 justify-content-center mb-5">
+  <div class="border-round-xl  w-8 flex align-items-center p_all justify-content-center bg-white">
+    <i class="pi pi-search main-color mx-2 font-bold"></i>
     <input
       [(ngModel)]="searchValue"
       (ngModelChange)="searchout($event)"
       type="search"
-      class="w-full p-1 ab bg-white outline-none"
+      placeholder="search Quize"
+      class="w-full  bg-white outline-none"
       name=""
       id=""
     />
   </div>
-  <app-button [text]="'Start Quiz'" [style]="'cursor-pointer'"></app-button>
+  <app-button [text]="'Start Quiz'" [style]="'cursor-pointer'" [style_button]="true"></app-button>
 </div>

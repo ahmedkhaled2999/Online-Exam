@@ -13,6 +13,8 @@ import {
   HistoryAnswer,
 } from '../../../shared/interface/historyAnswer/history-answer';
 import { QuestionApiService } from '../../../shared/services/question/question-api.service';
+import { take } from 'rxjs';
+import { TimeexamComponent } from '../../../shared/componets/busines/timeexam/timeexam.component';
 
 @Component({
   selector: 'app-exams-question',
@@ -22,6 +24,7 @@ import { QuestionApiService } from '../../../shared/services/question/question-a
     NgClass,
     NotFoundQutionComponent,
     ShowResulatComponent,
+    TimeexamComponent,
   ],
   templateUrl: './exams-question.component.html',
   styleUrl: './exams-question.component.css',
@@ -40,9 +43,7 @@ export class ExamsQuestionComponent implements OnInit {
   answeredQuestions: boolean[] = []; // Array to track which questions have been answered
 
   farthestQuestionReached: number = 0; // Tracks the farthest question index reached
-  timeout: number = 0; // Timer countdown in seconds
-  intervalId: any; // ID for the timer interval
-  formattedTime: string = ''; // Formatted time string for display
+  timeoutt: number = 0; // Timer countdown in seconds
 
   showResult: boolean = true; // Flag to control the display of results
 
@@ -63,20 +64,36 @@ export class ExamsQuestionComponent implements OnInit {
         this.selectedAnswers = state.selectedAnswers;
         this.answeredQuestions = state.answeredQuestions;
         this.farthestQuestionReached = state.farthestQuestionReached;
-        this.timeout = state.timeout;
-        this.startTimer(); // Start the timer
+        this.timeoutt = state.timeout;
+        // this.startTimer(); // Start the timer
       } else {
         if (this.Question.length === 0) {
           // Handle case where there are no questions
         } else {
-          this.timeout = this.Question[0].duration * 60;
-          console.log(this.timeout);
-          this.startTimer(); // Start the timer
+          this.timeoutt = this.Question[0].duration * 60;
+          console.log(this.timeoutt);
+          // this.startTimer(); // Start the timer
         }
       }
     }
   }
 
+  get selectedQuestion() {
+    // Getter to return the currently selected question
+    return this.Question[this.selectedQuestionIndex];
+  }
+
+  getqustion(key: string) {
+    // Handle answer selection for a question
+    this.isdisabled = false; // Enable answer selection
+    this.changebgInput = key; // Set the background color for the selected answer
+
+    // Store the selected answer and mark the question as answered
+    this.selectedAnswers[this.selectedQuestionIndex] = key;
+    this.answeredQuestions[this.selectedQuestionIndex] = true;
+
+    this.saveState();
+  }
   nextQuestion() {
     // Move to the next question
     this.isdisabled = true; // Disable answer selection
@@ -121,15 +138,9 @@ export class ExamsQuestionComponent implements OnInit {
       this.allAnswer = this.collectAnswers();
       console.log(this.allAnswer);
 
-      this._questionApiService.cheackHistory(this.allAnswer).subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
+      this.callapi();
     }
+
     this.updateAnswerArrays();
 
     this.saveState();
@@ -172,22 +183,30 @@ export class ExamsQuestionComponent implements OnInit {
       }
     }
   }
+  collectAnswers(): HistoryAnswer {
+    const answers: Answerqustion[] = this.Question.map((question, index) => ({
+      questionId: question.id!, // Assuming each question has a unique 'id' property
+      correct: this.selectedAnswers[index] || '', // Store the selected answer or an empty string if none
+    }));
 
-  get selectedQuestion() {
-    // Getter to return the currently selected question
-    return this.Question[this.selectedQuestionIndex];
+    return {
+      answers: answers,
+      time: this.timeoutt, // Store the remaining time
+    };
   }
 
-  getqustion(key: string, qstionForm: Root2) {
-    // Handle answer selection for a question
-    this.isdisabled = false; // Enable answer selection
-    this.changebgInput = key; // Set the background color for the selected answer
-
-    // Store the selected answer and mark the question as answered
-    this.selectedAnswers[this.selectedQuestionIndex] = key;
-    this.answeredQuestions[this.selectedQuestionIndex] = true;
-
-    this.saveState();
+  callapi() {
+    this._questionApiService
+      .cheackHistory(this.allAnswer)
+      .pipe(take(1)) // Automatically unsubscribe after the first emission
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   saveState() {
@@ -196,51 +215,11 @@ export class ExamsQuestionComponent implements OnInit {
       selectedAnswers: this.selectedAnswers,
       answeredQuestions: this.answeredQuestions,
       farthestQuestionReached: this.farthestQuestionReached,
-      timeout: this.timeout,
+      timeout: this.timeoutt,
     };
 
     if (isPlatformBrowser(this._platform)) {
       localStorage.setItem('quizState', JSON.stringify(state));
     }
-  }
-
-  startTimer() {
-    // Start the countdown timer
-    this.intervalId = setInterval(() => {
-      this.timeout -= 1; // Decrement the timeout
-      this.updateFormattedTime(); // Update the formatted time display
-      if (this.timeout <= 0) {
-        clearInterval(this.intervalId); // Stop the timer when it reaches zero
-        this.timeout = 0; // Ensure timeout does not go negative
-        console.log('Time is up!'); // Log time up message
-      }
-    }, 1000); // Set the interval to 1 second
-  }
-
-  updateFormattedTime(): string {
-    // Update the formatted time string for display
-    const minutes = Math.floor(this.timeout / 60); // Calculate minutes
-    const seconds = this.timeout % 60; // Calculate seconds
-    return (this.formattedTime = `${this.padZero(minutes)}:${this.padZero(
-      seconds
-    )}`); // Format and return time
-  }
-
-  padZero(num: number): string {
-    // Helper function to pad single digit numbers with a leading zero
-    return num < 10 ? `0${num}` : `${num}`;
-  }
-
-  collectAnswers(): HistoryAnswer {
-    const answers: Answerqustion[] = this.Question.map((question, index) => ({
-      questionId: question.id!, // Assuming each question has a unique 'id' property
-      correct: this.selectedAnswers[index] || '', // Store the selected answer or an empty string if none
-    }));
-
-    return  {
-        answers: answers,
-        time: this.timeout, // Store the remaining time
-      }
-    ;
   }
 }

@@ -6,6 +6,7 @@ import { QuestionApiService } from '../../../shared/services/question/question-a
 import { Root2 } from '../../../shared/interface/quiztion/answers/answers';
 import { LayerComponent } from '../../../shared/componets/ui/layer/layer.component';
 import { isPlatformBrowser } from '@angular/common';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-modal-quizes',
@@ -37,15 +38,18 @@ export class ModalQuizesComponent implements OnInit {
   }
 
   getallquestions() {
-    this._questionApiService.getallQuestions(this.idqustion).subscribe({
-      next: (res) => {
-        this.Question = res.answers;
-        console.log(this.Question)
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    this._questionApiService
+      .getallQuestions(this.idqustion)
+      .pipe(take(1)) // Automatically unsubscribe after the first emission
+      .subscribe({
+        next: (res) => {
+          this.Question = res.answers;
+          console.log(this.Question);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   openQuestion(question: boolean) {
