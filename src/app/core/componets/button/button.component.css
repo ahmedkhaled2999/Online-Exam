@@ -2,14 +2,27 @@
   border-color: transparent;
 }
 
-
-.colorChange{
-    background-color: white;
-    border-color: rgba(0, 0, 0, 0.205);
+.colorChange {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.205);
 }
 
 .colorChange:hover {
   background-color: var(--main-color);
   border-color: var(--main-color);
   color: white;
+}
+
+.w_buuton {
+  width: 100%;
+  height: 57px;
+  border-radius: 20px;
+  padding: 8px;
+}
+
+@media (max-width: 480px) {
+  .w_buuton {
+    width: 90%; 
+    height: 49px;/* Full width on small screens */
+  }
 }

@@ -1,3 +1,44 @@
-.color{
-    color:#122D9C ;
+.color {
+  color: #122d9c;
+}
+
+.fdont_Poppins {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 75px;
+}
+.line {
+  line-height: 90px;
+}
+
+.w_wlecome {
+  width: 498px;
+  height: 776;
+  padding: 80px 148px 167px 79px;
+}
+.w_sm {
+  width: 300px;
+  height: 776;
+  padding: 80px 148px 167px 79px;
+}
+.w_text {
+  width: 482px;
+  height: 80px;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 1);
+  line-height: 40px;
+  margin: 8px;
+}
+
+.w_img {
+  margin-top: 80px;
+  width: 408px;
+  height: 434.59px;
+}
+.h-hig {
+  min-height: 150vh;
+  position: fixed;
+  top: 0;
+  left: 0;
 }

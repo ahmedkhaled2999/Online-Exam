@@ -1,4 +1,4 @@
-<form action="" [formGroup]="form" (ngSubmit)="outputinput()">
+<form class="w_form text-center" action="" [formGroup]="form" (ngSubmit)="outputinput()">
   <!-- page name -->
   <app-headname [text]="headbages"></app-headname>
   <!-- error come from api -->
@@ -8,14 +8,14 @@
   @if (item.type == 'password' ) {
   <div class="relative">
     <input
-      class="p-3 w-27rem my-3"
+      class="w-input"
       [formControlName]="item.formcontrol"
       [type]="passwordVisible[item.formcontrol] ? 'text' : item.type"
       [placeholder]="item.placeholder"
       [ngClass]="{ 'border-red': isInvalidAndTouched(item.formcontrol) }"
     />
     <i
-      class="fa-regular fa-eye absolute right-0 top"
+      class="fa-regular fa-eye absolute  top"
       (click)="togglePasswordVisibility(item.formcontrol)"
       [ngClass]="{
         'fa-eye-slash': passwordVisible[item.formcontrol],
@@ -26,7 +26,7 @@
 
   }@else {
   <input
-    class="p-3 w-27rem my-3"
+    class="w-input"
     [formControlName]="item.formcontrol"
     [type]="item.type"
     [placeholder]="item.placeholder"
@@ -40,12 +40,13 @@
     [inputname]="item.formcontrol"
   ></app-errocomponets>
   }
+ 
   <!-- this text bottom inputs -->
   <app-textauth [page]="headbages"></app-textauth>
   <!-- button send data -->
-  <app-button [text]="'sing in'" [style]="'p-2 w-full text-white'"></app-button>
-<app-callgoogleapi></app-callgoogleapi>
+  <app-button [text]="'sing in'" [style]="'p-2  text-white mb-3'"></app-button>
 
+ <app-callgoogleapi></app-callgoogleapi>
 </form>
 
--
+

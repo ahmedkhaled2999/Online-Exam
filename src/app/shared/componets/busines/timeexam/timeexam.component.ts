@@ -5,28 +5,17 @@ import { Component, Input, input, OnInit } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './timeexam.component.html',
-  styleUrl: './timeexam.component.css'
+  styleUrl: './timeexam.component.css',
 })
-export class TimeexamComponent implements OnInit  {
-
-  @Input()  timeout: number = 0; // Timer countdown in seconds
+export class TimeexamComponent implements OnInit {
+  @Input() timeout: number = 0; // Timer countdown in seconds
   intervalId: any; // ID for the timer interval
-  formattedTime: string = ''; 
+  formattedTime: string = '';
 
+  ngOnInit(): void {
+    this.startTimer();
+  }
 
-
-
-
-
-
-ngOnInit(): void {
-  this.startTimer()
-}
-
-
-
-
-  
   startTimer() {
     // Start the countdown timer
     this.intervalId = setInterval(() => {

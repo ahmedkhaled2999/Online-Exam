@@ -1,3 +1,44 @@
-.opac{
-    border-color: rgb(233, 231, 231);
+.opac {
+  border-color: rgb(233, 231, 231);
+}
+
+.w-text {
+  width: 344px;
+  height: 42px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.w-lan {
+  width: 68px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 20px;
+  left: 24.2px;
+}
+.w-singin {
+  width: 68px;
+  height: 24px;
+  font-weight: 700;
+  font-size: 20px;
+  left: 24.2px;
+  color: rgba(68, 97, 242, 1);
+}
+.w_regester {
+  width: 129px;
+  height: 42px;
+  border-radius: 15px;
+  border: 2px solid rgba(245, 241, 241, 0.541);
+  color: rgba(68, 97, 242, 1);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24.2px;
+  transition: 0.3s;
+}
+
+.w_regester:hover {
+  background-color: rgba(68, 97, 242, 1);
+  color: white;
+  border:rgba(68, 97, 242, 1) ;
 }

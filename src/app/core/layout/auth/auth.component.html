@@ -1,22 +1,24 @@
-<div class="flex  flex-wrap  h-screen">
-  <div class="w-full md:w-6 p-5 bg-auth">
+<div class="flex flex-wrap h-screen">
+  <!-- Hidden on small screens, visible on medium and larger screens -->
+  <div class="w-full p-5 bg-auth hidden md:w-full md:block  lg:w-6 h-hig">
     <app-flex>
       <div>
-        <h2 class="text-5xl line-height-3">
+        <h2 class="fdont_Poppins">
           Welcome to <br />
-          <span class="text-6xl line-height-2 font-bold color">Elevate</span>
+          <span class="line">Elevate</span>
         </h2>
-        <p class="text-1xl line-height-4 w-25rem">
+        <p class="w_text">
           Quidem autem voluptatibus qui quaerat aspernatur architecto natus
         </p>
-        <div class="w-20rem mt-8">
+        <div class="w_img">
           <img class="w-full" src="assets/images/bro.png" alt="" />
         </div>
       </div>
     </app-flex>
   </div>
 
-  <div class="w-full md:w-6 p-5 h-full">
+  <!-- Visible on all screen sizes -->
+  <div class="w-full md:w-full h-full ml-auto lg:w-6 z-5 bg-white">
     <app-navlayout></app-navlayout>
     <app-flex>
       <router-outlet></router-outlet>

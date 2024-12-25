@@ -1,0 +1,17 @@
+.m-all{
+margin-top: 10px;
+margin-bottom: 40px;
+
+}
+
+.recovrey{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+@media (max-width: 768px) { /* Adjust the breakpoint as needed */
+    .m-all {
+        margin-right: 30px; /* Hide on medium and larger screens */
+    }
+}

@@ -14,7 +14,7 @@ import { ButtonComponent } from '../../../../core/componets/button/button.compon
 import { ErrapiComponent } from '../errorapi/errapi/errapi.component';
 import { RouterLink } from '@angular/router';
 import { TextauthComponent } from '../../ui/textauth/textauth.component';
-import { NgClass } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { CallgoogleapiComponent } from "../callgoogleapi/callgoogleapi.component";
 
 @Component({
@@ -28,7 +28,8 @@ import { CallgoogleapiComponent } from "../callgoogleapi/callgoogleapi.component
     HeadnameComponent,
     TextauthComponent,
     NgClass,
-    CallgoogleapiComponent
+    CallgoogleapiComponent,
+
 ],
   templateUrl: './inputs.component.html',
   styleUrl: './inputs.component.css',

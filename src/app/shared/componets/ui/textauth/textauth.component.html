@@ -1,22 +1,22 @@
 @if (page == 'Sign up' ) {
-<div class="flex justify-content-center mt-3">
-  <a class=" font-semibold text-sm">
+<div class="flex justify-content-center m-all ">
+  <a class=" recovrey">
     Already have an account? <span class="text-blue-500 cursor-pointer" [routerLink]="'/auth/login'">Login</span>
   </a>
 </div>
 
 }
 @if (page == 'Sign in' || page == 'Forgot your password?' ) {
-<div class="flex justify-content-end mt-3">
-  <a class="text-blue-500 font-semibold text-sm" [routerLink]="'/auth/ForgetPassword'">
+<div class="flex justify-content-end m-all">
+  <a class="recovrey text-blue-500" [routerLink]="'/auth/ForgetPassword'">
     Recover Password ?
   </a>
 </div>
 
 }
 @if (page == 'Verify code' ) {
-<div class="flex justify-content-end mt-3">
-    <a class=" font-semibold text-sm">
+<div class="flex justify-content-end m-all">
+    <a class=" recovrey">
         Didn’t receive a code?  <span class="text-blue-500 cursor-pointer" [routerLink]="'/auth/ForgetPassword'">Resend</span>
       </a>
 </div>
