@@ -1,4 +1,4 @@
-<div class="relative z-3">
+<div class="relative z-3 m-comment">
   <div
     class="sm:hidden flex justify-content-between main-bg align-items-center text-white p-2"
   >
@@ -7,22 +7,30 @@
     </div>
     <img src="assets/images/Rectangle 289.png" alt="" />
   </div>
+
   <div
-    class="p-2 menu absolute  w-full"
+    class="menu absolute w-full mr-8 p-3 md:p-0"
+    [ngStyle]="{
+      'background-color': windowWidth > 550 ? 'transparent' : 'white'
+    }"
     [ngClass]="{ 'menu-open': isMenuOpen }"
   >
-    <img src="assets/images/Final Logo 1.png" alt="elevate" />
-    <ul class="w-full">
+    <img src="assets/images/Final Logo 1.png" class="w-img" alt="elevate" />
+
+    <ul class="w-full block">
       @for (item of menuItems; track $index) {
-      <li>
+      <li class="mb32px">
         <div
+        
+          
           [ngClass]="{ active: activeIndex === $index }"
-          class="p-2 flex justify-content-between align-items-center w-9rem my-3"
+          class="flex justify-content-between align-items-center w-input"
           (click)="setActive($index)"
           (click)="item.label === 'Logout' ? logout() : ''"
+          (click)="item.label === 'Dashboard' ? gotohome() : ''"
         >
-          <i [ngClass]="item.icon"></i>
-          <h4 class="text-lg font-normal">{{ item.label }}</h4>
+          <i [ngClass]="item.icon" class="m_icon"></i>
+          <h4 class="font_side m_text">{{ item.label }}</h4>
         </div>
       </li>
       }

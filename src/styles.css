@@ -4,6 +4,10 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
+body {
+  background-color: #fbf9f9;
+}
+
 .bg-auth {
   background: rgb(241, 245, 252);
   background: linear-gradient(
@@ -32,17 +36,29 @@ a {
   text-decoration: none;
 }
 
-.p_all{
-  padding: 16px 32px;
-}
 .style_button {
   color: white;
-  padding: 16px 30px ;
   border: none;
   border-radius: 15px;
   transition: 0.5s;
   cursor: pointer;
 }
+.w-button-search {
+  width: 191px;
+  height: 61px;
+  border-radius: 20px;
+  padding: 16px 32px;
+}
+
+@media (max-width: 767px) {
+  .w-button-search {
+    width: 100px;
+    height: 45px;
+    border-radius: 20px;
+    padding: 8px 10px;
+  }
+}
+
 .style_button:hover {
   background-color: #3366fd8f;
 }
@@ -74,13 +90,10 @@ input:focus {
   border: 2px solid red;
 }
 
-.home-bg {
-  background-color: #fbf9f9;
-}
 .container {
   max-width: 1328px; /* Maximum width */
   margin: 0 auto; /* Center the container */
-  padding: 20px; /* Default padding */
+  /* Default padding */
 }
 
 /* Responsive adjustments */
@@ -111,7 +124,6 @@ input:focus {
   color: white;
   background-color: var(--main-color);
   transition: 0.5s;
-
   border-radius: 10px;
 }
 
@@ -125,11 +137,24 @@ input:focus {
 .width-maodal {
   width: 648px;
 }
+@media (max-width: 767px) {
+  .width-maodal {
+    width: 370px;
+  }
+}
 
 .width-back {
   width: 200px;
   height: 40px;
   border-radius: 100px;
+}
+@media (max-width: 767px) {
+  .width-maodal {
+    width: 370px;
+  }
+  .width-back{
+    width: 120px;
+  }
 }
 
 .resulat-Spherical {
@@ -269,7 +294,6 @@ input[type="radio"]:checked + .custom-radio:after {
   background: var(--main-color);
 }
 
-
-.main_bg{
+.main_bg {
   background-color: rgba(197, 196, 196, 0.199);
 }

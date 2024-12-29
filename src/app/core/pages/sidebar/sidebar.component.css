@@ -1,10 +1,64 @@
 .menu {
-    bottom: -230px; /* Start hidden */
+    bottom: -340px; /* Start hidden */
     transition:  0.3s ease; /* Smooth transition */
     display: hidden;
   }
   
   .menu-open {
-    bottom: 230px;
+    bottom: 220px;
     display: block; /* Move to visible position */
+  }
+
+  .w-img{
+    width: 151px;
+    height: 29px;
+    margin-bottom: 51px;
+    
+  }
+
+
+  .w-input{
+    width:193px ;
+    height: 46px;
+    border-radius: 10px;
+    padding: 8px;
+  }
+
+  .font_side{
+    height: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+  }
+  .mb32px{
+    margin-bottom: 32px;
+  }
+
+ .m_icon{
+  width: 18px;
+  height: 18px;
+ margin: 14px ;
+ margin-right: 0;
+
+
+  }
+ .m_text{
+
+margin-right: 5px;
+
+  }
+
+
+
+  .bg_tr{
+    background-color: red;
+  }
+  .m-comment{
+    margin-top: 40px;
+
+  }
+  @media(max-width:767px){
+    .m-comment{
+      margin-top: 0;
+    }
   }

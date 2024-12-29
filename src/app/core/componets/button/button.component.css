@@ -13,13 +13,6 @@
   color: white;
 }
 
-.w_buuton {
-  width: 100%;
-  height: 57px;
-  border-radius: 20px;
-  padding: 8px;
-}
-
 @media (max-width: 480px) {
   .w_buuton {
     width: 90%; 

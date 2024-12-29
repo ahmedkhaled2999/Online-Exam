@@ -5,11 +5,12 @@ import { ExamsUiComponent } from '../../../../shared/componets/ui/exams-ui/exams
 import { Exam } from '../../../../shared/interface/examsResponse/examps-res';
 import { NotFoundQutionComponent } from '../../../../shared/componets/ui/not-found-qution/not-found-qution.component';
 import { Subject, takeUntil } from 'rxjs';
+import { SearchComponent } from "../../search/search.component";
 
 @Component({
   selector: 'app-exams',
   standalone: true,
-  imports: [ExamsUiComponent, NotFoundQutionComponent],
+  imports: [ExamsUiComponent, NotFoundQutionComponent, SearchComponent],
   templateUrl: './exams.component.html',
   styleUrl: './exams.component.css',
 })

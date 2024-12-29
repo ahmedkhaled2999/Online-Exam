@@ -100,7 +100,7 @@ export class ExamsQuestionComponent implements OnInit {
     this.backdisabled = false; // Enable back button
 
     const selectedAnswer = this.selectedAnswers[this.selectedQuestionIndex];
-
+    console.log(this.selectedQuestion.answers);
     if (selectedAnswer) {
       // Store the selected answer in the current question object
       this.selectedQuestion.Personsanswer = selectedAnswer;

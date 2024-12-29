@@ -1,6 +1,6 @@
 @if (selectedQuestion) { @if (showResult) {
-<div>
-  <div class="flex justify-content-between">
+<div class="" >
+  <div class="flex justify-content-between ">
     <span class="text-primary font-bold"
       >Qustion {{ selectedQuestionIndex + 1 }} of {{ Question.length }}</span
     >
@@ -16,11 +16,11 @@
     ></div>
     }
   </div>
-  <h2 class="font-medium">{{ selectedQuestion.question }}</h2>
+  <h2 class="fs-q">{{ selectedQuestion.question }}</h2>
   @for (answer of selectedQuestion.answers; track $index) {
   <label
     [ngClass]="changebgInput === answer.key ? 'bg-input' : 'bg-black-alpha-10'"
-    class="flex my-3 p-2 border-round"
+    class="flex  overflow-x-hidden  h-full w-full align-items-center my-3 p-2 border-round "
   >
     <input
       type="radio"
@@ -31,7 +31,10 @@
       id="option1"
     />
     <span class="custom-radio mx-2"></span>
-    {{ answer.answer }}
+    <p class="w-full">
+          {{ answer.answer }}
+    </p>
+
   </label>
   }
   <div class="flex justify-content-around">

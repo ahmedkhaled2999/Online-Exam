@@ -5,62 +5,86 @@
 .width {
   width: 330.17px;
   height: 292.65px;
+  margin-right: 20px;
+  margin-bottom: 24px;
 }
+
+@media (max-width: 767px) {
+  .width {
+    width: 100%;
+    margin: 16px;
+    height: fit-content;
+  }
+}
+@media (min-width: 767px) and (max-width: 1200px) {
+  .width {
+    width: 50%;
+    margin: 0;
+    padding: 6px;
+  }
+}
+
 .width-text {
   width: 276.14px;
   height: 66.03px;
   border-radius: 8.44px;
-  background-color: rgba(25, 53, 202, 0.4);
+  background: rgba(25, 53, 202, 0.4);
   padding: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: white;
+  bottom: 10%;
+  left: 8%;
+  backdrop-filter: blur(10.01px);
+  -webkit-backdrop-filter: blur(10.01px);
+  color: white;
+}
+@media (min-width: 767px) and (max-width: 1200px) {
+  .width-text {
+    width: 80%;
+    height: 60px;
+    left: 28px;
+    top: 160px;
+  }
 }
 .fs {
   font-size: 13.51px;
   font-weight: 700;
-  line-height:20.26px ;
-}
-.row{
-    display: flex ;
-    justify-content: center;
-    align-items: center;
+  line-height: 20.26px;
 }
 
+@media (min-width: 767px) and (max-width: 1200px) {
+  .fs {
+    font-size: 10.51px;
+    font-weight: 700;
+    line-height: 20.26px;
+  }
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .example-item {
-  height: 50px; /* Set the height of each item */
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #eee;
 }
 
-
-.flex {
-  display: flex;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
 .flex-item {
-  flex: 0 0 calc(33.33% - 10px); /* Adjust the width to 33.33% for 3 items */
-  margin: 5px; /* Add some margin between items */
-  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  flex: 0 0 calc(33.33% - 10px);
+  margin: 5px;
+  box-sizing: border-box;
 }
 
 .bg-black-alpha-60 {
   background-color: rgba(0, 0, 0, 0.6); /* Example background color */
 }
 
-.width {
-  position: relative;
+.fs-text {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
 }
-
-.width-text {
-  position: absolute;
-  bottom: 10px; /* Adjust as needed */
-  left: 10px; /* Adjust as needed */
-  color: white; /* Example text color */
-}
-
